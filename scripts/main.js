@@ -29,6 +29,14 @@ const mainGame = () => {
     localStorage.setItem("computerShips", JSON.stringify(computerShips));
   };
 
+  const clearLocalStorage = () => {
+    localStorage.removeItem("currentMove");
+    localStorage.removeItem("gameStarted");
+    localStorage.removeItem("shipsToPlace");
+    localStorage.removeItem("playerShips");
+    localStorage.removeItem("computerShips");
+  };
+
   const readFromLocalStorage = () => {
     const isGameSaved =
       localStorage.getItem("shipsToPlace") &&
@@ -264,6 +272,7 @@ const mainGame = () => {
 
         if (computerShips.flat().filter((item) => item == "x").length == 20) {
           alert("Wygrałeś! Kliknij OK, będzie rewanż ;)");
+          clearLocalStorage();
           location.reload();
         }
 
@@ -301,6 +310,7 @@ const mainGame = () => {
         resetComputerBoard();
         if (playerShips.flat().filter((item) => item == "x").length == 20) {
           alert("Wygrał komputer");
+          clearLocalStorage();
           endGame();
         }
         currentMove = playerId;
