@@ -274,6 +274,7 @@ const mainGame = () => {
           alert("Wygrałeś! Kliknij OK, będzie rewanż ;)");
           clearLocalStorage();
           location.reload();
+          return;
         }
 
         currentMove = computerId;
@@ -312,6 +313,7 @@ const mainGame = () => {
           alert("Wygrał komputer");
           clearLocalStorage();
           endGame();
+          return;
         }
         currentMove = playerId;
 
@@ -322,7 +324,7 @@ const mainGame = () => {
         document
           .getElementById("computerLabel")
           .classList.remove("currentMove");
-      }, 1000);
+      }, 10);
     }
   };
 
