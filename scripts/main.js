@@ -324,7 +324,7 @@ const mainGame = () => {
         document
           .getElementById("computerLabel")
           .classList.remove("currentMove");
-      }, 10);
+      }, 1000);
     }
   };
 
